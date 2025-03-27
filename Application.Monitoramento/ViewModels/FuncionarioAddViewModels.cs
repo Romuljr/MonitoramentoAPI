@@ -32,5 +32,7 @@ namespace MonitoramentoAPI.Application.ViewModels
 
         // Relação de um para muitos com Rastreamento
         public ICollection<Rastreamento> Rastreamentos { get; set; }
+
+        // continua...
     }
 }
