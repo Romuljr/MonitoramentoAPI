@@ -1,23 +1,39 @@
+using MonitoramentoAPI.Presentation.Configurations;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Configuração do IConfiguration (já vem pronto no builder)
+var configuration = builder.Configuration;
 
+// Adiciona os serviços da aplicação
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+
+// Configuração do Swagger
+SwaggerConfiguration.AddSwaggerSetup(builder.Services);
+
+// Configuração do Entity Framework (passando IConfiguration)
+EntityFrameworkConfiguration.AddEntityFrameworkSetup(builder.Services, configuration);
+
+// Injeção de dependências customizadas
+DependencyInjectionConfiguration.AddDependencyInjectionSetup(builder.Services);
+
+// AutoMapper
+AutoMapperConfiguration.AddAutoMapperSetup(builder.Services);
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Middlewares
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseDeveloperExceptionPage();
+    app.UseSwaggerSetup(); // Usa o método de extensão igual no Startup antigo
 }
+
+app.UseRouting();
 
 app.UseAuthorization();
 
 app.MapControllers();
 
 app.Run();
+

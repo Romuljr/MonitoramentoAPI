@@ -25,6 +25,11 @@ namespace MonitoramentoAPI.Infra.Repositories
             context.SaveChanges();
         }
 
+        public void Dispose()
+        {
+            context.Dispose();
+        }
+
         public virtual Entity Find(Func<Entity, bool> where)
         {
             return context.Set<Entity>().FirstOrDefault(where);

@@ -20,9 +20,9 @@ namespace MonitoramentoAPI.Infra.Repositories
             this.context = context;
         }
 
-        public IFuncionarioRepository funcionarioRepository => throw new NotImplementedException();
+        public IFuncionarioRepository funcionarioRepository => new FuncionarioRepository(context);
 
-        public IRastreamentoRepository rastreamentoRepository => throw new NotImplementedException();
+        public IRastreamentoRepository rastreamentoRepository => new RastreamentoRepository(context);
 
         public void BeginTransaction()
         {

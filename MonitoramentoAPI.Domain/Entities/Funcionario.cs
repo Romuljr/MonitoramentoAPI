@@ -20,7 +20,7 @@ namespace MonitoramentoAPI.Domain.Entities
         public DateTime DataAtualizacao { get; set; } = DateTime.UtcNow;
 
         // Relação de um para muitos com Rastreamento
-        public ICollection<Rastreamento> Rastreamentos { get; set; }
+        public ICollection<Rastreamento> Rastreamentos { get; set; } = new List<Rastreamento>();
     }
 
 }

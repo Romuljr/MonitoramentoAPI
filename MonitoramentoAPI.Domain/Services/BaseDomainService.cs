@@ -49,9 +49,9 @@ namespace MonitoramentoAPI.Domain.Services
             repository.Delete(entity);
         }
 
-        //public virtual void Dispose()
-        //{
-        //    repository.Dispose();
-        //}
+        public virtual void Dispose()
+        {
+            repository.Dispose();
+        }
     }
 }

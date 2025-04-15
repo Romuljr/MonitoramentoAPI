@@ -20,5 +20,6 @@ namespace MonitoramentoAPI.Domain.Contracts.Data
 
         Entity FindById(Guid id);
         Entity Find(Func<Entity, bool> where);
+        void Dispose();
     }
 }

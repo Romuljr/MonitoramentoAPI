@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MonitoramentoAPI.Domain.Contracts.Services
 {
-    public interface IFuncionarioDomainService : IBaseDomainService<Funcionario>
+    public interface IFuncionarioDomainService : IBaseDomainService<Funcionario>, IDisposable
     {
     }
 }

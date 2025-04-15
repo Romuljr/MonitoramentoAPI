@@ -31,8 +31,7 @@ namespace MonitoramentoAPI.Application.ViewModels
 
 
         // Relação de um para muitos com Rastreamento
-        public ICollection<Rastreamento> Rastreamentos { get; set; }
+        public ICollection<RastreamentoFuncionarioAddViewModels> Rastreamentos { get; set; }
 
-        // continua...
     }
 }
